@@ -16,7 +16,7 @@ teams = match_df.HomeTeam.unique() # get league teams
 table_stats = ['PTS','GS','GC','STREAK','FORM','GSA','GCA'] # column headers for our table
    
 
-def checkForm(streak): 
+def check_form(streak): 
     '''
     to view the recent form of the team. form is calculated by the 
     percentage of wins from the team's last 5 games
@@ -38,7 +38,7 @@ def checkForm(streak):
 
 
 
-def getLeagueTable(weeks=38):
+def get_league_table(weeks=38):
     ''' function to view the league table after a certain number of weeks in the season. 
     Args:
         weeks (int) : number of weeks to show the table after. defaults to 38 to show the end of the season
@@ -75,8 +75,8 @@ def getLeagueTable(weeks=38):
         table[away][2] += int(game[5])
             
         # calculate form
-        table[home][4] = checkForm(table[home][3])
-        table[away][4] = checkForm(table[away][3])
+        table[home][4] = check_form(table[home][3])
+        table[away][4] = check_form(table[away][3])
         
         # calculate average goals
         table[home][5] = table[home][1]/len(table[home][3])
@@ -114,7 +114,7 @@ def view_next_matches(weeks=0):
             l = []
             l.append(match[3])
             l.append(match[4])
-            current_table, current_table_df = getLeagueTable(week)
+            current_table, current_table_df = get_league_table(week)
             l.append(current_table[match[3]][0])
             l.append(current_table[match[4]][0])
             l.append(current_table[match[3]][5])
