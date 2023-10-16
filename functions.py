@@ -11,11 +11,7 @@ match_df.head()
 
 teams = match_df.HomeTeam.unique() # get league teams
 table_stats = ['PTS','GS','GC','STREAK','FORM','GSA','GCA'] # column headers for our table
-
-table = {}
-for team in teams:
-    table[team] = [0,0,0,[],0]  # initializing each team in the table  
-    
+   
 
 def checkForm(streak): 
     '''
